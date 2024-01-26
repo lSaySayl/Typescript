@@ -1,120 +1,71 @@
 "use strict";
 (() => {
-    class Mutante {
-        constructor(name, realName) {
-            this.name = name;
-            this.realName = realName;
+})();
+(() => {
+    class Mutant {
+        mutanPower(id) {
+            return this.name + "-" + this.realName + " - " + this.age + " - " + id;
         }
     }
-    class Xmen extends Mutante {
-        salvarMund() {
-            return "Mundo salvado";
+    const prueba = new Mutant();
+    console.log(prueba.mutanPower("20"));
+})();
+(() => {
+    const client = {
+        name: "Bruce",
+        age: 45,
+        address: {
+            city: "Gotham",
+            id: 123,
+            zip: "123456"
+        },
+        getFullAddress(id) {
+            return this.address.city + " " + this.address.zip + " " + id;
         }
-    }
-    class Villain extends Mutante {
-        conquistarMundo() {
-            return "Mundo conquistado";
-        }
-    }
-    const wolverine = new Xmen('Wolverine', 'Logan');
-    const villain = new Villain('Malo', 'Malito');
-    /* console.log(wolverine.salvarMund());
-    console.log(villain.conquistarMundo()); */
-    const printName = (character) => {
-        /*  console.log(character.realName) */
     };
-    printName(wolverine);
-    printName(villain);
+    console.log(client.getFullAddress("10"));
 })();
 (() => {
-    class Avenger {
-        constructor(name, team, realName, avgAge = 55) {
-            this.name = name;
-            this.team = team;
-            this.realName = realName;
-            Avenger.avgAge = avgAge;
+    const conducirBatimovil = (auto) => {
+        auto.encender = true;
+        auto.velocidadMaxima = 100;
+        auto.acelerar();
+    };
+    const batimovil = {
+        encender: false,
+        velocidadMaxima: 0,
+        acelerar() {
+            console.log('...... runnnnn');
         }
-        bio() {
-            return `${this.name} (${this.team})`;
+    };
+    const guason = {
+        reir: true,
+        comer: true,
+        llorar: false
+    };
+    const reir = (guason) => {
+        if (guason.reir) {
+            console.log("Jajajaj");
         }
-        static getAvgAge() {
-            return this.name;
-        }
-        getName() {
-            return this.name;
+    };
+    reir(guason);
+    const ciudadGotica = (ciudadanos) => {
+        return ciudadanos.length;
+    };
+    console.log(ciudadGotica(['Flash', 'Batman', 'Superman', 'Acuaman']));
+    class Persona {
+        imprimirBio() {
+            console.log(this.nombre + " " + this.edad + " " + this.sexo + " " + this.estadoCivil);
         }
     }
-    Avenger.avgAge = 35;
-    /*  const antman: Avenger = new Avenger('Antman', 'Cap', 'Camilo');
-     console.log(antman)
-     console.log(Avenger.avgAge)
-     console.log( Avenger.getAvgAge()) */
+    const persona = new Persona();
+    persona.edad = 20;
+    console.log(persona.edad);
 })();
 (() => {
-    class Avenger {
-        constructor(name, realName) {
-            this.name = name;
-            this.realName = realName;
-            /*    console.log('Constructor Avenger') */
-        }
-        getFullName() {
-            return `${this.name} ${this.realName}!!`;
-        }
-    }
-    class Xmen extends Avenger {
-        constructor(name, realName, isMutant) {
-            super(name, realName);
-            this.isMutant = isMutant;
-            /* console.log('Constructor Xmen') */
-        }
-        get fullName() {
-            return `${this.name} - ${this.realName}`;
-        }
-        set fullName(name) {
-            if (name.length < 3) {
-                throw new Error('El nombre debe ser mayor a 3 caracteres');
-            }
-            this.name = name;
-        }
-        getNameDesdeXmen() {
-            /* console.log(super.getFullName()) */
-        }
-    }
-    const wolfverine = new Xmen("Wolf", "camiloaaa", true);
-    /* console.log(wolfverine.getNameDesdeXmen()) */
-    wolfverine.fullName = "Camilo";
-    /*    console.log(wolfverine.fullName)
-       console.log("--------------------------------") */
-    class Animal {
-        constructor() {
-            this.name = "animal";
-        }
-        get nombre() {
-            if (this.name === 'animal') {
-                console.log('no tiene nombre');
-            }
-            return this.name;
-        }
-        set nombre(name) {
-            this.name = name;
-        }
-    }
-    const animalito = new Animal();
-    /* animalito.nombre = "leon" */
-    /* console.log(animalito.nombre) */
-})();
-(() => {
-    class Apocalipsis {
-        constructor(name) {
-            this.name = name;
-        }
-        static callApocalipsis() {
-            if (!Apocalipsis.instance) {
-                Apocalipsis.instance = new Apocalipsis('Soy Apocalipsis');
-            }
-            return Apocalipsis.instance;
-        }
-    }
-    const apocalipsis = Apocalipsis.callApocalipsis();
+    let addNumbers;
+    addNumbers = (a, b) => {
+        return a + b;
+    };
 })();
 //# sourceMappingURL=main.js.map
